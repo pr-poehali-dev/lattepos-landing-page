@@ -52,7 +52,7 @@ const plans = [
     period: "/мес",
     desc: "Для малого бизнеса и ИП",
     features: ["1 кассовое место", "Базовая аналитика", "Email поддержка", "Облачные отчёты", "2 интеграции"],
-    cta: "Начать бесплатно",
+    cta: "Начать 30 дней бесплатно",
     highlight: false,
     color: TEAL,
   },
@@ -62,7 +62,7 @@ const plans = [
     period: "/мес",
     desc: "Для растущих компаний",
     features: ["5 кассовых мест", "Расширенная аналитика", "Приоритетная поддержка", "Программа лояльности", "Все интеграции", "API доступ"],
-    cta: "Попробовать 14 дней",
+    cta: "Попробовать 30 дней",
     highlight: true,
     color: TERRA,
     badge: "Популярный",
@@ -85,6 +85,70 @@ const advantages = [
   { number: "50+", label: "Интеграций", icon: "Link" },
   { number: "10 000+", label: "Клиентов", icon: "Users" },
 ];
+
+function LoginModal({ onClose }: { onClose: () => void }) {
+  const [form, setForm] = useState({ email: '', password: '' });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      style={{ background: 'rgba(10,28,24,0.85)', backdropFilter: 'blur(8px)' }}
+      onClick={onClose}>
+      <div className="gradient-border w-full max-w-sm p-8 rounded-2xl relative animate-scale-in"
+        style={{ background: 'var(--dark-card)' }}
+        onClick={e => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 opacity-50 hover:opacity-100 transition-opacity"
+          style={{ color: CREAM }}>
+          <Icon name="X" size={20} />
+        </button>
+        <div className="flex items-center gap-3 mb-6">
+          <img src={LOGO_IMG} alt="Lattesoft" className="w-10 h-10 object-contain" />
+          <div>
+            <h3 className="text-xl font-bold" style={{ color: CREAM }}>Войти в систему</h3>
+            <p className="text-xs" style={{ color: 'rgba(232,213,176,0.45)' }}>LattePOS</p>
+          </div>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold mb-1.5" style={{ color: 'rgba(232,213,176,0.65)' }}>Email</label>
+            <input type="email" required placeholder="you@company.ru" value={form.email}
+              onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+              className="w-full px-4 py-3 rounded-xl outline-none transition-all"
+              style={{ background: 'rgba(15,36,32,0.8)', border: '1px solid rgba(201,96,58,0.2)', color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
+              onFocus={e => (e.target.style.borderColor = 'rgba(201,96,58,0.55)')}
+              onBlur={e => (e.target.style.borderColor = 'rgba(201,96,58,0.2)')}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold mb-1.5" style={{ color: 'rgba(232,213,176,0.65)' }}>Пароль</label>
+            <input type="password" required placeholder="••••••••" value={form.password}
+              onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
+              className="w-full px-4 py-3 rounded-xl outline-none transition-all"
+              style={{ background: 'rgba(15,36,32,0.8)', border: '1px solid rgba(201,96,58,0.2)', color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
+              onFocus={e => (e.target.style.borderColor = 'rgba(201,96,58,0.55)')}
+              onBlur={e => (e.target.style.borderColor = 'rgba(201,96,58,0.2)')}
+            />
+          </div>
+          <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2 text-base">
+            Войти <Icon name="LogIn" size={16} />
+          </button>
+          <p className="text-center text-xs" style={{ color: 'rgba(232,213,176,0.35)' }}>
+            Нет аккаунта?{' '}
+            <button type="button" onClick={onClose} className="underline transition-colors"
+              style={{ color: TERRA_LIGHT }}
+              onMouseEnter={e => (e.currentTarget.style.color = CREAM)}
+              onMouseLeave={e => (e.currentTarget.style.color = TERRA_LIGHT)}>
+              Попробовать бесплатно
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 function LeadModal({ onClose }: { onClose: () => void }) {
   const [form, setForm] = useState({ name: '', phone: '', company: '', message: '' });
@@ -134,7 +198,7 @@ function LeadModal({ onClose }: { onClose: () => void }) {
               <img src={LOGO_IMG} alt="Lattesoft" className="w-10 h-10 object-contain" />
               <div>
                 <h3 className="text-xl font-bold" style={{ color: CREAM }}>Попробовать LattePOS</h3>
-                <p className="text-xs" style={{ color: 'rgba(232,213,176,0.45)' }}>14 дней бесплатно</p>
+                <p className="text-xs" style={{ color: 'rgba(232,213,176,0.45)' }}>30 дней бесплатно</p>
               </div>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -197,6 +261,7 @@ export default function Index() {
   const [activeTab, setActiveTab] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const heroSection = useInView(0.1);
   const featuresSection = useInView(0.1);
@@ -214,6 +279,7 @@ export default function Index() {
   return (
     <div className="min-h-screen mesh-gradient" style={{ fontFamily: "'Golos Text', sans-serif" }}>
       {showModal && <LeadModal onClose={() => setShowModal(false)} />}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(15,36,32,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(201,96,58,0.1)" }}>
@@ -233,7 +299,7 @@ export default function Index() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <button className="btn-outline text-sm py-2.5 px-5">Войти</button>
+            <button className="btn-outline text-sm py-2.5 px-5" onClick={() => setShowLogin(true)}>Войти</button>
             <button className="btn-primary text-sm py-2.5 px-5" onClick={() => setShowModal(true)}>Попробовать</button>
           </div>
 
@@ -247,7 +313,7 @@ export default function Index() {
             {[["Возможности", "#features"], ["Демо", "#demo"], ["Преимущества", "#advantages"], ["Тарифы", "#plans"], ["Контакты", "#contact"]].map(([label, href]) => (
               <a key={label} href={href} className="text-sm font-medium py-2" style={{ color: "rgba(232,213,176,0.7)" }} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
-            <button className="btn-primary text-sm" onClick={() => { setMenuOpen(false); setShowModal(true); }}>Попробовать бесплатно</button>
+            <button className="btn-primary text-sm" onClick={() => { setMenuOpen(false); setShowModal(true); }}>Попробовать 30 дней</button>
           </div>
         )}
       </nav>
@@ -287,7 +353,7 @@ export default function Index() {
             <div className={`flex flex-wrap gap-4 mb-12 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
               style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
               <button className="btn-primary flex items-center gap-2" onClick={() => setShowModal(true)}>
-                Попробовать 14 дней бесплатно
+                Попробовать 30 дней бесплатно
                 <Icon name="ArrowRight" size={18} />
               </button>
               <button className="btn-outline flex items-center gap-2">
@@ -558,7 +624,7 @@ export default function Index() {
             <h2 className="text-4xl lg:text-5xl font-black mb-4">
               Выберите<br /><span className="gradient-text">свой план</span>
             </h2>
-            <p className="text-lg" style={{ color: "rgba(232,213,176,0.5)" }}>14 дней бесплатно для всех тарифов</p>
+            <p className="text-lg" style={{ color: "rgba(232,213,176,0.5)" }}>30 дней бесплатно для всех тарифов</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 items-start">
@@ -698,15 +764,13 @@ export default function Index() {
             <img src={LOGO_IMG} alt="Lattesoft" className="w-10 h-10 object-contain" />
             <span className="font-bold" style={{ color: CREAM }}>Latte<span className="gradient-text-terra">POS</span></span>
           </div>
-          <p className="text-xs" style={{ color: "rgba(232,213,176,0.3)" }}>© 2026 LattePOS. Все права защищены.</p>
+          <p className="text-xs" style={{ color: "rgba(232,213,176,0.3)" }}>© 2026 ООО «Латте Софт». Все права защищены.</p>
           <div className="flex gap-6">
-            {["Политика конфиденциальности", "Оферта"].map(link => (
-              <a key={link} href="#" className="text-xs transition-colors" style={{ color: "rgba(232,213,176,0.3)" }}
-                onMouseEnter={e => (e.currentTarget.style.color = TERRA_LIGHT)}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(232,213,176,0.3)")}>
-                {link}
-              </a>
-            ))}
+            <a href="#" className="text-xs transition-colors" style={{ color: "rgba(232,213,176,0.3)" }}
+              onMouseEnter={e => (e.currentTarget.style.color = TERRA_LIGHT)}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(232,213,176,0.3)")}>
+              Политика конфиденциальности
+            </a>
           </div>
         </div>
       </footer>
