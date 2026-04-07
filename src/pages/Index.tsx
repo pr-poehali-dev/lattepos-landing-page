@@ -513,73 +513,68 @@ export default function Index() {
               Готовы начать?<br /><span className="gradient-text">Свяжитесь с нами</span>
             </h2>
             <p className="text-lg" style={{ color: "rgba(232,213,176,0.5)" }}>
-              Оставьте заявку и мы свяжемся с вами в течение 15 минут
+              Мы находимся в Йошкар-Оле и работаем по всей России
             </p>
           </div>
 
-          <div className={`gradient-border p-8 lg:p-12 opacity-0 ${contactSection.inView ? "animate-scale-in" : ""}`}
+          <div className={`grid lg:grid-cols-2 gap-8 opacity-0 ${contactSection.inView ? "animate-scale-in" : ""}`}
             style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-sm font-semibold mb-2" style={{ color: "rgba(232,213,176,0.65)" }}>Ваше имя</label>
-                <input type="text" placeholder="Иван Петров"
-                  className="w-full px-4 py-3 rounded-xl outline-none transition-all"
-                  style={{ background: "rgba(15,36,32,0.8)", border: "1px solid rgba(201,96,58,0.2)", color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
-                  onFocus={e => (e.target.style.borderColor = "rgba(201,96,58,0.55)")}
-                  onBlur={e => (e.target.style.borderColor = "rgba(201,96,58,0.2)")}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2" style={{ color: "rgba(232,213,176,0.65)" }}>Телефон</label>
-                <input type="tel" placeholder="+7 (___) ___-__-__"
-                  className="w-full px-4 py-3 rounded-xl outline-none transition-all"
-                  style={{ background: "rgba(15,36,32,0.8)", border: "1px solid rgba(201,96,58,0.2)", color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
-                  onFocus={e => (e.target.style.borderColor = "rgba(201,96,58,0.55)")}
-                  onBlur={e => (e.target.style.borderColor = "rgba(201,96,58,0.2)")}
-                />
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block text-sm font-semibold mb-2" style={{ color: "rgba(232,213,176,0.65)" }}>Название компании</label>
-              <input type="text" placeholder="ООО «Название»"
-                className="w-full px-4 py-3 rounded-xl outline-none transition-all"
-                style={{ background: "rgba(15,36,32,0.8)", border: "1px solid rgba(201,96,58,0.2)", color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
-                onFocus={e => (e.target.style.borderColor = "rgba(201,96,58,0.55)")}
-                onBlur={e => (e.target.style.borderColor = "rgba(201,96,58,0.2)")}
-              />
-            </div>
-            <div className="mb-8">
-              <label className="block text-sm font-semibold mb-2" style={{ color: "rgba(232,213,176,0.65)" }}>Сообщение (необязательно)</label>
-              <textarea rows={4} placeholder="Расскажите о вашем бизнесе..."
-                className="w-full px-4 py-3 rounded-xl outline-none transition-all resize-none"
-                style={{ background: "rgba(15,36,32,0.8)", border: "1px solid rgba(201,96,58,0.2)", color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
-                onFocus={e => (e.target.style.borderColor = "rgba(201,96,58,0.55)")}
-                onBlur={e => (e.target.style.borderColor = "rgba(201,96,58,0.2)")}
-              />
-            </div>
-            <button className="btn-primary w-full flex items-center justify-center gap-2 text-base">
-              Отправить заявку
-              <Icon name="Send" size={18} />
-            </button>
-          </div>
 
-          <div className={`flex flex-wrap justify-center gap-8 mt-12 opacity-0 ${contactSection.inView ? "animate-fade-in-up" : ""}`}
-            style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
-            {[
-              { icon: "Phone", label: "+7 (800) 555-35-35", sub: "Бесплатно по России" },
-              { icon: "Mail", label: "hello@lattepos.ru", sub: "Ответим за 15 минут" },
-              { icon: "MapPin", label: "Москва, Россия", sub: "Работаем по всей России" },
-            ].map(item => (
-              <div key={item.label} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.2)" }}>
-                  <Icon name={item.icon as IconName} size={18} style={{ color: TERRA_LIGHT }} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold" style={{ color: CREAM }}>{item.label}</p>
-                  <p className="text-xs" style={{ color: "rgba(232,213,176,0.4)" }}>{item.sub}</p>
+            {/* Контактная информация + реквизиты */}
+            <div className="flex flex-col gap-6">
+              <div className="gradient-border p-6 rounded-2xl">
+                <h3 className="text-lg font-bold mb-4" style={{ color: CREAM }}>Контакты</h3>
+                <div className="space-y-4">
+                  {[
+                    { icon: "Phone", label: "8 800 250-46-05", sub: "Бесплатно по России", href: "tel:88002504605" },
+                    { icon: "Mail", label: "info@lattepos.ru", sub: "Ответим за 15 минут", href: "mailto:info@lattepos.ru" },
+                    { icon: "MapPin", label: "г. Йошкар-Ола, ул. Комсомольская 132, пом. 5", sub: "Республика Марий Эл", href: undefined },
+                  ].map(item => (
+                    <div key={item.label} className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.2)" }}>
+                        <Icon name={item.icon as IconName} size={18} style={{ color: TERRA_LIGHT }} />
+                      </div>
+                      <div>
+                        {item.href
+                          ? <a href={item.href} className="text-sm font-semibold transition-colors" style={{ color: CREAM }}
+                              onMouseEnter={e => (e.currentTarget.style.color = TERRA_LIGHT)}
+                              onMouseLeave={e => (e.currentTarget.style.color = CREAM)}>{item.label}</a>
+                          : <p className="text-sm font-semibold" style={{ color: CREAM }}>{item.label}</p>
+                        }
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(232,213,176,0.4)" }}>{item.sub}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+
+              <div className="gradient-border p-6 rounded-2xl">
+                <h3 className="text-lg font-bold mb-4" style={{ color: CREAM }}>Реквизиты</h3>
+                <div className="space-y-2">
+                  {[
+                    ["Организация", 'ООО "Латте СОФТ"'],
+                    ["ИНН", "1200021867"],
+                  ].map(([key, val]) => (
+                    <div key={key} className="flex justify-between gap-4">
+                      <span className="text-sm" style={{ color: "rgba(232,213,176,0.45)" }}>{key}</span>
+                      <span className="text-sm font-medium text-right" style={{ color: CREAM }}>{val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Яндекс карта */}
+            <div className="gradient-border rounded-2xl overflow-hidden" style={{ minHeight: "380px" }}>
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?text=%D0%99%D0%BE%D1%88%D0%BA%D0%B0%D1%80-%D0%9E%D0%BB%D0%B0%2C+%D1%83%D0%BB.+%D0%9A%D0%BE%D0%BC%D1%81%D0%BE%D0%BC%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F+132&z=16&l=map"
+                width="100%"
+                height="100%"
+                style={{ border: "none", minHeight: "380px", display: "block", filter: "invert(0.85) hue-rotate(165deg) saturate(0.7)" }}
+                allowFullScreen
+                title="Карта офиса"
+              />
+            </div>
           </div>
         </div>
       </section>
