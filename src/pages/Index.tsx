@@ -4,6 +4,8 @@ type IconName = string;
 
 const DASHBOARD_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/files/fa914c70-7f07-444d-990f-d97dc0f968ff.jpg";
 const NETWORK_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/files/4cc67a46-d331-470c-a1c3-470728560af2.jpg";
+const LOGO_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/a4d2dcda-1aa7-4e4d-bc54-31c3b81c1079.png";
+const SEND_LEAD_URL = "https://functions.poehali.dev/86f9b595-8683-4fcd-affa-b06cc4697af5";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -84,9 +86,117 @@ const advantages = [
   { number: "10 000+", label: "Клиентов", icon: "Users" },
 ];
 
+function LeadModal({ onClose }: { onClose: () => void }) {
+  const [form, setForm] = useState({ name: '', phone: '', company: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      const res = await fetch(SEND_LEAD_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) setStatus('success');
+      else setStatus('error');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      style={{ background: 'rgba(10,28,24,0.85)', backdropFilter: 'blur(8px)' }}
+      onClick={onClose}>
+      <div className="gradient-border w-full max-w-md p-8 rounded-2xl relative animate-scale-in"
+        style={{ background: 'var(--dark-card)' }}
+        onClick={e => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 opacity-50 hover:opacity-100 transition-opacity"
+          style={{ color: CREAM }}>
+          <Icon name="X" size={20} />
+        </button>
+
+        {status === 'success' ? (
+          <div className="text-center py-8">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              style={{ background: 'rgba(74,153,144,0.2)' }}>
+              <Icon name="CheckCircle" size={36} style={{ color: TEAL_LIGHT }} />
+            </div>
+            <h3 className="text-2xl font-bold mb-2" style={{ color: CREAM }}>Заявка отправлена!</h3>
+            <p className="text-sm" style={{ color: 'rgba(232,213,176,0.55)' }}>Мы свяжемся с вами в течение 15 минут</p>
+            <button onClick={onClose} className="btn-primary mt-6">Закрыть</button>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-center gap-3 mb-6">
+              <img src={LOGO_IMG} alt="Lattesoft" className="w-10 h-10 object-contain" />
+              <div>
+                <h3 className="text-xl font-bold" style={{ color: CREAM }}>Попробовать LattePOS</h3>
+                <p className="text-xs" style={{ color: 'rgba(232,213,176,0.45)' }}>14 дней бесплатно</p>
+              </div>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold mb-1.5" style={{ color: 'rgba(232,213,176,0.65)' }}>Ваше имя *</label>
+                <input type="text" required placeholder="Иван Петров" value={form.name}
+                  onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all"
+                  style={{ background: 'rgba(15,36,32,0.8)', border: '1px solid rgba(201,96,58,0.2)', color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
+                  onFocus={e => (e.target.style.borderColor = 'rgba(201,96,58,0.55)')}
+                  onBlur={e => (e.target.style.borderColor = 'rgba(201,96,58,0.2)')}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1.5" style={{ color: 'rgba(232,213,176,0.65)' }}>Телефон *</label>
+                <input type="tel" required placeholder="+7 (___) ___-__-__" value={form.phone}
+                  onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all"
+                  style={{ background: 'rgba(15,36,32,0.8)', border: '1px solid rgba(201,96,58,0.2)', color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
+                  onFocus={e => (e.target.style.borderColor = 'rgba(201,96,58,0.55)')}
+                  onBlur={e => (e.target.style.borderColor = 'rgba(201,96,58,0.2)')}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1.5" style={{ color: 'rgba(232,213,176,0.65)' }}>Компания</label>
+                <input type="text" placeholder="ООО «Название»" value={form.company}
+                  onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all"
+                  style={{ background: 'rgba(15,36,32,0.8)', border: '1px solid rgba(201,96,58,0.2)', color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
+                  onFocus={e => (e.target.style.borderColor = 'rgba(201,96,58,0.55)')}
+                  onBlur={e => (e.target.style.borderColor = 'rgba(201,96,58,0.2)')}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1.5" style={{ color: 'rgba(232,213,176,0.65)' }}>Сообщение</label>
+                <textarea rows={3} placeholder="Расскажите о вашем бизнесе..." value={form.message}
+                  onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all resize-none"
+                  style={{ background: 'rgba(15,36,32,0.8)', border: '1px solid rgba(201,96,58,0.2)', color: CREAM, fontFamily: "'Golos Text', sans-serif" }}
+                  onFocus={e => (e.target.style.borderColor = 'rgba(201,96,58,0.55)')}
+                  onBlur={e => (e.target.style.borderColor = 'rgba(201,96,58,0.2)')}
+                />
+              </div>
+              {status === 'error' && (
+                <p className="text-sm" style={{ color: '#e06060' }}>Ошибка отправки. Попробуйте позже или позвоните нам.</p>
+              )}
+              <button type="submit" disabled={status === 'loading'}
+                className="btn-primary w-full flex items-center justify-center gap-2 text-base">
+                {status === 'loading' ? 'Отправляем...' : <>Отправить заявку <Icon name="Send" size={16} /></>}
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const [activeTab, setActiveTab] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const heroSection = useInView(0.1);
   const featuresSection = useInView(0.1);
@@ -103,12 +213,13 @@ export default function Index() {
 
   return (
     <div className="min-h-screen mesh-gradient" style={{ fontFamily: "'Golos Text', sans-serif" }}>
+      {showModal && <LeadModal onClose={() => setShowModal(false)} />}
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(15,36,32,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(201,96,58,0.1)" }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/4387561b-6df1-4c77-9f9f-54a1c400f17b.png" alt="Lattesoft" className="w-9 h-9 object-contain rounded-lg" />
+            <img src={LOGO_IMG} alt="Lattesoft" className="w-11 h-11 object-contain" />
             <span className="font-bold text-xl" style={{ color: CREAM }}>Latte<span className="gradient-text-terra">POS</span></span>
           </div>
 
@@ -123,7 +234,7 @@ export default function Index() {
 
           <div className="hidden md:flex items-center gap-3">
             <button className="btn-outline text-sm py-2.5 px-5">Войти</button>
-            <button className="btn-primary text-sm py-2.5 px-5">Попробовать</button>
+            <button className="btn-primary text-sm py-2.5 px-5" onClick={() => setShowModal(true)}>Попробовать</button>
           </div>
 
           <button className="md:hidden" style={{ color: CREAM }} onClick={() => setMenuOpen(!menuOpen)}>
@@ -136,7 +247,7 @@ export default function Index() {
             {[["Возможности", "#features"], ["Демо", "#demo"], ["Преимущества", "#advantages"], ["Тарифы", "#plans"], ["Контакты", "#contact"]].map(([label, href]) => (
               <a key={label} href={href} className="text-sm font-medium py-2" style={{ color: "rgba(232,213,176,0.7)" }} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
-            <button className="btn-primary text-sm">Попробовать бесплатно</button>
+            <button className="btn-primary text-sm" onClick={() => { setMenuOpen(false); setShowModal(true); }}>Попробовать бесплатно</button>
           </div>
         )}
       </nav>
@@ -175,7 +286,7 @@ export default function Index() {
 
             <div className={`flex flex-wrap gap-4 mb-12 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
               style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
-              <button className="btn-primary flex items-center gap-2">
+              <button className="btn-primary flex items-center gap-2" onClick={() => setShowModal(true)}>
                 Попробовать 14 дней бесплатно
                 <Icon name="ArrowRight" size={18} />
               </button>
@@ -490,7 +601,8 @@ export default function Index() {
                   style={plan.highlight
                     ? { background: `linear-gradient(135deg, ${plan.color}, ${TERRA_LIGHT})`, color: CREAM }
                     : { background: `${plan.color}18`, color: plan.color, border: `1px solid ${plan.color}35` }
-                  }>
+                  }
+                  onClick={() => setShowModal(true)}>
                   {plan.cta}
                 </button>
               </div>
@@ -527,7 +639,7 @@ export default function Index() {
                 <div className="space-y-4">
                   {[
                     { icon: "Phone", label: "8 800 250-46-05", sub: "Бесплатно по России", href: "tel:88002504605" },
-                    { icon: "Mail", label: "info@lattepos.ru", sub: "Ответим за 15 минут", href: "mailto:info@lattepos.ru" },
+                    { icon: "Mail", label: "info@lattesoft.ru", sub: "Ответим за 15 минут", href: "mailto:info@lattesoft.ru" },
                     { icon: "MapPin", label: "г. Йошкар-Ола, ул. Комсомольская 132, пом. 5", sub: "Республика Марий Эл", href: undefined },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-3">
@@ -552,7 +664,7 @@ export default function Index() {
                 <h3 className="text-lg font-bold mb-4" style={{ color: CREAM }}>Реквизиты</h3>
                 <div className="space-y-2">
                   {[
-                    ["Организация", 'ООО "Латте СОФТ"'],
+                    ["Организация", 'ООО "Латте Софт"'],
                     ["ИНН", "1200021867"],
                   ].map(([key, val]) => (
                     <div key={key} className="flex justify-between gap-4">
@@ -583,7 +695,7 @@ export default function Index() {
       <footer className="py-10" style={{ borderTop: "1px solid rgba(201,96,58,0.1)", background: "rgba(10,28,24,0.9)" }}>
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/4387561b-6df1-4c77-9f9f-54a1c400f17b.png" alt="Lattesoft" className="w-8 h-8 object-contain rounded-lg" />
+            <img src={LOGO_IMG} alt="Lattesoft" className="w-10 h-10 object-contain" />
             <span className="font-bold" style={{ color: CREAM }}>Latte<span className="gradient-text-terra">POS</span></span>
           </div>
           <p className="text-xs" style={{ color: "rgba(232,213,176,0.3)" }}>© 2026 LattePOS. Все права защищены.</p>
