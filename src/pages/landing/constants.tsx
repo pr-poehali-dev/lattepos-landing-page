@@ -68,6 +68,13 @@ export const integrations = [
       <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/8b41fc04-e98c-4919-96ca-596a6766c76a.png" alt="Масса-К" style={{ height: "36px", width: "auto" }} />
     ),
   },
+  {
+    name: "ЕГАИС",
+    url: "https://egais.ru/",
+    logo: (
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/dd668ce0-0e1e-48d6-92de-de8e70c7122a.png" alt="ЕГАИС" style={{ height: "36px", width: "auto" }} />
+    ),
+  },
 ];
 
 export const plans = [
