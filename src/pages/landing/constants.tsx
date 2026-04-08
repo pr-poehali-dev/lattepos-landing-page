@@ -37,40 +37,7 @@ export const integrations = [
     name: "1С",
     url: "https://v8.1c.ru/",
     logo: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="36" height="36" rx="6" fill="#FFCC00"/>
-        <text x="5" y="27" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="22" fill="#ED1C24">1С</text>
-      </svg>
-    ),
-  },
-  {
-    name: "АТОЛ",
-    url: "https://www.atol.ru/",
-    logo: (
-      <svg width="54" height="26" viewBox="0 0 54 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="54" height="26" rx="5" fill="#E31E24"/>
-        <text x="5" y="19" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="15" fill="#FFFFFF" letterSpacing="1">АТОЛ</text>
-      </svg>
-    ),
-  },
-  {
-    name: "Дримкас",
-    url: "https://dreamkas.ru/",
-    logo: (
-      <svg width="84" height="26" viewBox="0 0 84 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="84" height="26" rx="5" fill="#00AEEF"/>
-        <text x="6" y="19" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="13" fill="#FFFFFF" letterSpacing="0.5">Дримкас</text>
-      </svg>
-    ),
-  },
-  {
-    name: "CAS",
-    url: "https://cas-russia.ru/",
-    logo: (
-      <svg width="48" height="26" viewBox="0 0 48 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="48" height="26" rx="5" fill="#003087"/>
-        <text x="6" y="19" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="15" fill="#FFFFFF" letterSpacing="1">CAS</text>
-      </svg>
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/741ef0d3-21ea-4674-b846-d5942a6091ad.png" alt="1С" style={{ height: "36px", width: "auto" }} />
     ),
   },
 ];
