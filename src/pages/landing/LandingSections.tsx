@@ -292,17 +292,17 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               {
                 icon: "Cpu",
                 color: TERRA,
-                desc: (<>Быстрая работа кассиров на <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span> даже на слабом железе: Intel Celeron N4020 1.1&nbsp;GHz, 4&nbsp;GB RAM, Windows&nbsp;7</>),
+                desc: (<>Быстрая работа кассиров на <span style={{ color: "#e8d5b0" }}>Latte</span><span style={{ color: "#cf6a45" }}>POS</span> даже на слабом железе: Intel Celeron N4020 1.1&nbsp;GHz, 4&nbsp;GB RAM, Windows&nbsp;7</>),
               },
               {
                 icon: "WifiOff",
                 color: TEAL,
-                desc: (<>Работа <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span> на кассе продолжится даже если пропадёт интернет</>),
+                desc: (<>Работа <span style={{ color: "#e8d5b0" }}>Latte</span><span style={{ color: "#cf6a45" }}>POS</span> на кассе продолжится даже если пропадёт интернет</>),
               },
               {
                 icon: "Server",
                 color: TERRA_LIGHT,
-                desc: (<>Сервер <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span>.Server может размещаться как на железе клиента, так и в нашем облаке</>),
+                desc: (<>Сервер <span style={{ color: "#e8d5b0" }}>Latte</span><span style={{ color: "#cf6a45" }}>POS</span>.Server может размещаться как на железе клиента, так и в нашем облаке</>),
               },
               {
                 icon: "Network",
@@ -312,12 +312,12 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               {
                 icon: "RefreshCw",
                 color: TERRA,
-                desc: (<>Обмен с&nbsp;1С любой типовой конфигурации в&nbsp;формате EnterpriseData уже настроен в&nbsp;основной поставке <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span></>),
+                desc: (<>Обмен с&nbsp;1С любой типовой конфигурации в&nbsp;формате EnterpriseData уже настроен в&nbsp;основной поставке <span style={{ color: "#e8d5b0" }}>Latte</span><span style={{ color: "#cf6a45" }}>POS</span></>),
               },
               {
                 icon: "ShieldCheck",
                 color: TEAL,
-                desc: (<>Интеграция с&nbsp;ЕГАИС и&nbsp;Честный Знак включена в&nbsp;стоимость основной поставки <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span></>),
+                desc: (<>Интеграция с&nbsp;ЕГАИС и&nbsp;Честный Знак включена в&nbsp;стоимость основной поставки <span style={{ color: "#e8d5b0" }}>Latte</span><span style={{ color: "#cf6a45" }}>POS</span></>),
               },
             ].map((item, i) => (
               <div key={i}
