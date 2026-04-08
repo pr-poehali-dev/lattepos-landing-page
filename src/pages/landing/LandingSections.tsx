@@ -287,37 +287,46 @@ export default function LandingSections({ onTrial }: SectionsProps) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {advantages.map((adv, i) => (
-              <div key={adv.label}
-                className={`text-center gradient-border p-8 card-hover opacity-0 ${advantagesSection.inView ? "animate-scale-in" : ""}`}
-                style={{ animationDelay: `${i * 0.1}s`, animationFillMode: "forwards" }}>
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.25)" }}>
-                  <Icon name={adv.icon as IconName} size={24} style={{ color: TERRA_LIGHT }} />
-                </div>
-                <div className="text-4xl font-black mb-2 glow-text-terra" style={{ color: TERRA_LIGHT }}>{adv.number}</div>
-                <div className="text-sm" style={{ color: "rgba(232,213,176,0.5)" }}>{adv.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "Wifi", title: "Работа без интернета", desc: "Полный функционал даже при отключении сети. Синхронизация автоматически при восстановлении соединения.", color: TERRA },
-              { icon: "Layers", title: "Единая платформа", desc: "Одна система для кассы, склада, CRM и аналитики. Больше не нужно переключаться между программами.", color: TEAL },
-              { icon: "Headphones", title: "Поддержка 24/7", desc: "Техническая поддержка в любое время суток. Среднее время ответа — 3 минуты.", color: TERRA_LIGHT },
+              {
+                icon: "Cpu",
+                color: TERRA,
+                desc: (<>Быстрая работа кассиров на <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span> даже на слабом железе: Intel Celeron N4020 1.1&nbsp;GHz, 4&nbsp;GB RAM, Windows&nbsp;7</>),
+              },
+              {
+                icon: "WifiOff",
+                color: TEAL,
+                desc: (<>Работа <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span> на кассе продолжится даже если пропадёт интернет</>),
+              },
+              {
+                icon: "Server",
+                color: TERRA_LIGHT,
+                desc: (<>Сервер <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span>.Server может размещаться как на железе клиента, так и в нашем облаке</>),
+              },
+              {
+                icon: "Network",
+                color: TEAL_LIGHT,
+                desc: (<>Поддерживается кластеризация серверов, что позволяет строить сети из 10&nbsp;000+ магазинов</>),
+              },
+              {
+                icon: "RefreshCw",
+                color: TERRA,
+                desc: (<>Обмен с&nbsp;1С любой типовой конфигурации в&nbsp;формате EnterpriseData уже настроен в&nbsp;основной поставке <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span></>),
+              },
+              {
+                icon: "ShieldCheck",
+                color: TEAL,
+                desc: (<>Интеграция с&nbsp;ЕГАИС и&nbsp;Честный Знак включена в&nbsp;стоимость основной поставки <span style={{ color: TERRA_LIGHT }}>Latte</span><span style={{ color: TEAL_LIGHT }}>POS</span></>),
+              },
             ].map((item, i) => (
-              <div key={item.title}
+              <div key={i}
                 className={`flex gap-4 p-6 rounded-2xl card-hover opacity-0 ${advantagesSection.inView ? "animate-fade-in-up" : ""}`}
-                style={{ background: "rgba(26,53,48,0.7)", border: `1px solid ${item.color}28`, animationDelay: `${0.4 + i * 0.1}s`, animationFillMode: "forwards" }}>
+                style={{ background: "rgba(26,53,48,0.7)", border: `1px solid ${item.color}28`, animationDelay: `${i * 0.1}s`, animationFillMode: "forwards" }}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${item.color}18` }}>
                   <Icon name={item.icon as IconName} size={22} style={{ color: item.color }} />
                 </div>
-                <div>
-                  <h3 className="font-bold mb-1" style={{ color: CREAM }}>{item.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(232,213,176,0.5)" }}>{item.desc}</p>
-                </div>
+                <p className="text-sm leading-relaxed self-center" style={{ color: "rgba(232,213,176,0.75)" }}>{item.desc}</p>
               </div>
             ))}
           </div>
