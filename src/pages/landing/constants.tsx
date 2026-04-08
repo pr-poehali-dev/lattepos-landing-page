@@ -40,6 +40,13 @@ export const integrations = [
       <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/741ef0d3-21ea-4674-b846-d5942a6091ad.png" alt="1С" style={{ height: "36px", width: "auto" }} />
     ),
   },
+  {
+    name: "АТОЛ",
+    url: "https://www.atol.ru/",
+    logo: (
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/d00120f5-0390-4fae-85f7-71715933b70a.png" alt="АТОЛ" style={{ height: "36px", width: "auto" }} />
+    ),
+  },
 ];
 
 export const plans = [
