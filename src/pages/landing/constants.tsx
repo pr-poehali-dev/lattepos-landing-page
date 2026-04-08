@@ -54,6 +54,13 @@ export const integrations = [
       <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/61dc81fd-fc32-4c9c-8f90-f7846290ae21.png" alt="Дримкас" style={{ height: "36px", width: "auto" }} />
     ),
   },
+  {
+    name: "CAS",
+    url: "https://cas-russia.ru/",
+    logo: (
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/d7a2ed22-5896-401e-9d66-bbde55f0db24.png" alt="CAS" style={{ height: "36px", width: "auto" }} />
+    ),
+  },
 ];
 
 export const plans = [
