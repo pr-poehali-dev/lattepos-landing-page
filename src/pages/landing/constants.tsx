@@ -75,6 +75,13 @@ export const integrations = [
       <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/dd668ce0-0e1e-48d6-92de-de8e70c7122a.png" alt="ЕГАИС" style={{ height: "36px", width: "auto" }} />
     ),
   },
+  {
+    name: "Честный знак",
+    url: "https://xn--80ajghhoc2aj1c8b.xn--p1ai/",
+    logo: (
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/b0ef05f3-6877-456b-b199-bd3a89c7ee8b.png" alt="Честный знак" style={{ height: "36px", width: "auto" }} />
+    ),
+  },
 ];
 
 export const plans = [
