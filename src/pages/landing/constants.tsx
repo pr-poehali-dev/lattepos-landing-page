@@ -61,6 +61,13 @@ export const integrations = [
       <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/d7a2ed22-5896-401e-9d66-bbde55f0db24.png" alt="CAS" style={{ height: "36px", width: "auto" }} />
     ),
   },
+  {
+    name: "Масса-К",
+    url: "https://massa.ru/",
+    logo: (
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/8b41fc04-e98c-4919-96ca-596a6766c76a.png" alt="Масса-К" style={{ height: "36px", width: "auto" }} />
+    ),
+  },
 ];
 
 export const plans = [
