@@ -283,7 +283,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               Преимущества
             </div>
             <h2 className="text-4xl lg:text-5xl font-black mb-4">
-              Цифры,<br /><span className="gradient-text">которые говорят сами</span>
+              Надёжность,<br /><span className="gradient-text">проверенная практикой</span>
             </h2>
           </div>
 
