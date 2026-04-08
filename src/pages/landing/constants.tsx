@@ -47,6 +47,13 @@ export const integrations = [
       <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/d00120f5-0390-4fae-85f7-71715933b70a.png" alt="АТОЛ" style={{ height: "36px", width: "auto" }} />
     ),
   },
+  {
+    name: "Дримкас",
+    url: "https://dreamkas.ru/",
+    logo: (
+      <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/61dc81fd-fc32-4c9c-8f90-f7846290ae21.png" alt="Дримкас" style={{ height: "36px", width: "auto" }} />
+    ),
+  },
 ];
 
 export const plans = [
