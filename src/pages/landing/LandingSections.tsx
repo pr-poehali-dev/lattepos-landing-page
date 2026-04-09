@@ -349,7 +349,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
             <p className="text-lg" style={{ color: "rgba(232,213,176,0.5)" }}>30 дней бесплатно для всех тарифов</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 items-start">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             {plans.map((plan, i) => (
               <div key={plan.name}
                 className={`relative rounded-2xl p-8 card-hover opacity-0 ${plansSection.inView ? "animate-fade-in-up" : ""}`}
