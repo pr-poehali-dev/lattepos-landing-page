@@ -344,9 +344,8 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               Тарифы
             </div>
             <h2 className="text-4xl lg:text-5xl font-black mb-4">
-              Выберите<br /><span className="gradient-text">свой план</span>
+              Выберите свой <span className="gradient-text">тариф</span>
             </h2>
-            <p className="text-lg" style={{ color: "rgba(232,213,176,0.5)" }}>30 дней бесплатно для всех тарифов</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -362,7 +361,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
                 }}>
                 <div className="mb-6">
                   <h3 className="text-lg font-bold mb-1" style={{ color: CREAM }}>{plan.name}</h3>
-                  <p className="text-sm mb-4" style={{ color: "rgba(232,213,176,0.45)" }}>{plan.desc}</p>
+                  <p className="text-sm mb-4 whitespace-pre-line" style={{ color: "rgba(232,213,176,0.45)" }}>{plan.desc}</p>
                   <div className="flex items-end gap-1 flex-wrap">
                     <span className="text-2xl font-black" style={{ color: CREAM }}>₽{plan.price}</span>
                     <span className="text-xs mb-1" style={{ color: "rgba(232,213,176,0.4)" }}>{plan.period}</span>
@@ -388,7 +387,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               className="px-10 py-4 rounded-xl font-semibold text-sm transition-all"
               style={{ background: `linear-gradient(135deg, ${TERRA}, ${TERRA_LIGHT})`, color: CREAM }}
               onClick={onTrial}>
-              Попробовать 30 дней
+              Попробовать любой тариф бесплатно на 30 дней
             </button>
           </div>
         </div>
