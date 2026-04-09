@@ -349,52 +349,47 @@ export default function LandingSections({ onTrial }: SectionsProps) {
             <p className="text-lg" style={{ color: "rgba(232,213,176,0.5)" }}>30 дней бесплатно для всех тарифов</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {plans.map((plan, i) => (
               <div key={plan.name}
-                className={`relative rounded-2xl p-8 card-hover opacity-0 ${plansSection.inView ? "animate-fade-in-up" : ""}`}
+                className={`relative rounded-2xl p-8 card-hover opacity-0 flex flex-col ${plansSection.inView ? "animate-fade-in-up" : ""}`}
                 style={{
-                  background: plan.highlight ? "rgba(31,61,56,0.95)" : "rgba(26,53,48,0.6)",
-                  border: plan.highlight ? `1px solid ${plan.color}45` : "1px solid rgba(232,213,176,0.07)",
-                  boxShadow: plan.highlight ? `0 0 40px ${plan.color}18` : "none",
+                  background: "rgba(31,61,56,0.95)",
+                  border: `1px solid ${plan.color}45`,
+                  boxShadow: `0 0 40px ${plan.color}18`,
                   animationDelay: `${i * 0.1}s`,
                   animationFillMode: "forwards",
                 }}>
-                {plan.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ background: plan.color, color: CREAM }}>
-                    {plan.badge}
-                  </div>
-                )}
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold mb-1" style={{ color: CREAM }}>{plan.name}</h3>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: CREAM }}>{plan.name}</h3>
                   <p className="text-sm mb-4" style={{ color: "rgba(232,213,176,0.45)" }}>{plan.desc}</p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-4xl font-black" style={{ color: CREAM }}>₽{plan.price}</span>
-                    <span className="text-sm mb-1" style={{ color: "rgba(232,213,176,0.4)" }}>{plan.period}</span>
+                  <div className="flex items-end gap-1 flex-wrap">
+                    <span className="text-2xl font-black" style={{ color: CREAM }}>₽{plan.price}</span>
+                    <span className="text-xs mb-1" style={{ color: "rgba(232,213,176,0.4)" }}>{plan.period}</span>
                   </div>
                 </div>
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 flex-1">
                   {plan.features.map(feat => (
-                    <div key={feat} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: `${plan.color}18` }}>
+                    <div key={feat} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${plan.color}18` }}>
                         <Icon name="Check" size={10} style={{ color: plan.color }} />
                       </div>
-                      <span className="text-sm" style={{ color: "rgba(232,213,176,0.65)" }}>{feat}</span>
+                      <span style={{ color: "rgba(232,213,176,0.65)", fontSize: "12px" }}>{feat}</span>
                     </div>
                   ))}
                 </div>
-                <button
-                  className="w-full py-3 rounded-xl font-semibold text-sm transition-all"
-                  style={plan.highlight
-                    ? { background: `linear-gradient(135deg, ${plan.color}, ${TERRA_LIGHT})`, color: CREAM }
-                    : { background: `${plan.color}18`, color: plan.color, border: `1px solid ${plan.color}35` }
-                  }
-                  onClick={onTrial}>
-                  {plan.cta}
-                </button>
               </div>
             ))}
+          </div>
+
+          <div className={`text-center mt-10 opacity-0 ${plansSection.inView ? "animate-fade-in-up" : ""}`}
+            style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
+            <button
+              className="px-10 py-4 rounded-xl font-semibold text-sm transition-all"
+              style={{ background: `linear-gradient(135deg, ${TERRA}, ${TERRA_LIGHT})`, color: CREAM }}
+              onClick={onTrial}>
+              Попробовать 30 дней
+            </button>
           </div>
         </div>
       </section>
