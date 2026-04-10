@@ -24,9 +24,9 @@ export default function LandingSections({ onTrial }: SectionsProps) {
   const contactSection = useInView(0.1);
 
   const demoTabs = [
-    { label: "для Магазинов", icon: "Store" },
-    { label: "для Фаст Фуда", icon: "Sandwich" },
-    { label: "для Ресторана", icon: "UtensilsCrossed" },
+    { label: "Магазины", icon: "Store" },
+    { label: "Фаст Фуд", icon: "Sandwich" },
+    { label: "Ресторан", icon: "UtensilsCrossed" },
   ];
 
   return (
