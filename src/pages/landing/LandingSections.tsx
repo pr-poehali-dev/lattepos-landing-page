@@ -24,9 +24,9 @@ export default function LandingSections({ onTrial }: SectionsProps) {
   const contactSection = useInView(0.1);
 
   const demoTabs = [
-    { label: "Продажи", icon: "ShoppingCart" },
-    { label: "Склад", icon: "Package" },
-    { label: "Отчёты", icon: "BarChart3" },
+    { label: "для Магазинов", icon: "Store" },
+    { label: "для Фаст Фуда", icon: "Sandwich" },
+    { label: "для Ресторана", icon: "UtensilsCrossed" },
   ];
 
   return (
@@ -173,8 +173,8 @@ export default function LandingSections({ onTrial }: SectionsProps) {
             style={{ animationFillMode: "forwards" }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-4"
               style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.3)", color: TERRA_LIGHT }}>
-              <Icon name="Monitor" size={12} />
-              Демонстрация
+              <Icon name="GitBranch" size={12} />
+              Схема работы
             </div>
             <h2 className="text-4xl lg:text-5xl font-black mb-4">
               Смотрите,<br /><span className="gradient-text">как это работает</span>

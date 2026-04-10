@@ -18,7 +18,7 @@ export default function LandingNav({ menuOpen, setMenuOpen, onLogin, onTrial }: 
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {[["Возможности", "#features"], ["Демо", "#demo"], ["Преимущества", "#advantages"], ["Тарифы", "#plans"], ["Контакты", "#contact"]].map(([label, href]) => (
+          {[["Возможности", "#features"], ["Схема", "#demo"], ["Преимущества", "#advantages"], ["Тарифы", "#plans"], ["Контакты", "#contact"]].map(([label, href]) => (
             <a key={label} href={href} className="text-sm font-medium transition-colors" style={{ color: "rgba(232,213,176,0.55)" }}
               onMouseEnter={e => (e.currentTarget.style.color = TERRA_LIGHT)}
               onMouseLeave={e => (e.currentTarget.style.color = "rgba(232,213,176,0.55)")}
@@ -38,7 +38,7 @@ export default function LandingNav({ menuOpen, setMenuOpen, onLogin, onTrial }: 
 
       {menuOpen && (
         <div className="md:hidden px-6 pb-6 flex flex-col gap-4" style={{ background: "rgba(15,36,32,0.98)" }}>
-          {[["Возможности", "#features"], ["Демо", "#demo"], ["Преимущества", "#advantages"], ["Тарифы", "#plans"], ["Контакты", "#contact"]].map(([label, href]) => (
+          {[["Возможности", "#features"], ["Схема", "#demo"], ["Преимущества", "#advantages"], ["Тарифы", "#plans"], ["Контакты", "#contact"]].map(([label, href]) => (
             <a key={label} href={href} className="text-sm font-medium py-2" style={{ color: "rgba(232,213,176,0.7)" }} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
           <button className="btn-primary text-sm" onClick={() => { setMenuOpen(false); onTrial(); }}>Попробовать 30 дней</button>
