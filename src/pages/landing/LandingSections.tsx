@@ -459,7 +459,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
 
             <div className="gradient-border rounded-2xl overflow-hidden" style={{ minHeight: "380px" }}>
               <iframe
-                src="https://yandex.ru/map-widget/v1/?text=%D0%99%D0%BE%D1%88%D0%BA%D0%B0%D1%80-%D0%9E%D0%BB%D0%B0%2C+%D1%83%D0%BB.+%D0%9A%D0%BE%D0%BC%D1%81%D0%BE%D0%BC%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F+132&z=16&l=map"
+                src="https://yandex.ru/map-widget/v1/?text=%D0%99%D0%BE%D1%88%D0%BA%D0%B0%D1%80-%D0%9E%D0%BB%D0%B0%2C+%D1%83%D0%BB.+%D0%9A%D0%BE%D0%BC%D1%81%D0%BE%D0%BC%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F+132&z=16&l=map&nointents=1"
                 width="100%"
                 height="100%"
                 style={{ border: "none", minHeight: "380px", display: "block", filter: "invert(0.85) hue-rotate(165deg) saturate(0.7)" }}
