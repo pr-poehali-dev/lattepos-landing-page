@@ -360,8 +360,10 @@ export default function LandingSections({ onTrial }: SectionsProps) {
                   animationFillMode: "forwards",
                 }}>
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-1" style={{ color: CREAM }}>{plan.name}</h3>
-                  <p className="text-sm mb-4 whitespace-pre-line" style={{ color: "rgba(232,213,176,0.45)" }}>{plan.desc}</p>
+                  <h3 className="text-lg font-bold mb-1">
+                    <span style={{ color: CREAM }}>Latte</span><span style={{ color: "#cf6a45" }}>{plan.name.replace("Latte", "")}</span>
+                  </h3>
+                  <p className="text-sm mb-4 whitespace-pre-line" style={{ color: "#e8d5b0" }}>{plan.desc}</p>
                   <div className="flex items-end gap-1 flex-wrap">
                     <span className="text-2xl font-black" style={{ color: CREAM }}>₽{plan.price}</span>
                     <span className="text-xs mb-1" style={{ color: "rgba(232,213,176,0.4)" }}>{plan.period}</span>
