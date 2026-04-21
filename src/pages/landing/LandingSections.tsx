@@ -45,15 +45,20 @@ export default function LandingSections({ onTrial }: SectionsProps) {
 
         <div ref={heroSection.ref} className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
           <div>
+            <div className={`text-5xl lg:text-6xl font-black mb-2 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
+              style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+              <span style={{ color: CREAM }}>Latte</span><span className="gradient-text-terra">POS</span>
+            </div>
+
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
-              style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.3)", color: TERRA_LIGHT, animationDelay: "0.1s", animationFillMode: "forwards" }}>
+              style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.3)", color: TERRA_LIGHT, animationDelay: "0.15s", animationFillMode: "forwards" }}>
               <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: TERRA_LIGHT }} />
               Новое поколение кассовых систем
             </div>
 
-            <h1 className={`text-5xl lg:text-6xl font-black leading-tight mb-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
+            <h1 className={`text-3xl lg:text-4xl font-black leading-snug mb-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
               style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-              Касса программа,<br />
+              Кассовая программа,<br />
               <span className="gradient-text">которая работает быстро</span>
             </h1>
 
