@@ -50,12 +50,6 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               <span style={{ color: CREAM }}>Latte</span><span className="gradient-text-terra">POS</span>
             </div>
 
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
-              style={{ background: "rgba(201,96,58,0.12)", border: "1px solid rgba(201,96,58,0.3)", color: TERRA_LIGHT, animationDelay: "0.15s", animationFillMode: "forwards" }}>
-              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: TERRA_LIGHT }} />
-              Новое поколение кассовых систем
-            </div>
-
             <h1 className={`text-3xl lg:text-4xl font-black leading-snug mb-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
               style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
               Кассовая программа,<br />
@@ -87,17 +81,11 @@ export default function LandingSections({ onTrial }: SectionsProps) {
             <div className="relative animate-float">
               <div className="absolute inset-0 rounded-2xl blur-xl opacity-30" style={{ background: "linear-gradient(135deg, #c9603a, #4a9990)" }} />
               <div className="relative rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(201,96,58,0.25)" }}>
-                <img src={DASHBOARD_IMG} alt="LattePOS Dashboard" className="w-full h-auto rounded-2xl" />
-                <div className="absolute inset-0 rounded-2xl" style={{ background: "linear-gradient(to top, rgba(15,36,32,0.85) 0%, transparent 50%)" }} />
+                <img src="https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/67fbeca4-0f84-40a4-95a0-30559bd79705.png" alt="LattePOS Terminal" className="w-full h-auto rounded-2xl" />
               </div>
               <div className="absolute -top-4 -right-4 px-4 py-2 rounded-xl text-sm font-bold animate-pulse-glow"
                 style={{ background: "linear-gradient(135deg, #c9603a, #d97a56)", color: CREAM }}>
                 ⚡ 0.3с транзакция
-              </div>
-              <div className="absolute -bottom-4 -left-4 px-4 py-3 rounded-xl"
-                style={{ background: "rgba(26,53,48,0.97)", border: "1px solid rgba(74,153,144,0.35)" }}>
-                <div className="text-xs mb-0.5" style={{ color: "rgba(232,213,176,0.5)" }}>Продажи сегодня</div>
-                <div className="text-xl font-black" style={{ color: TEAL_LIGHT }}>₽ 284 590</div>
               </div>
             </div>
           </div>
