@@ -53,14 +53,13 @@ export default function LandingSections({ onTrial }: SectionsProps) {
 
             <h1 className={`text-5xl lg:text-6xl font-black leading-tight mb-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
               style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-              Касса, которая<br />
-              <span className="gradient-text">работает за вас</span>
+              Касса программа,<br />
+              <span className="gradient-text">которая работает быстро</span>
             </h1>
 
             <p className={`text-lg mb-8 leading-relaxed opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
               style={{ color: "rgba(232,213,176,0.6)", animationDelay: "0.3s", animationFillMode: "forwards" }}>
-              LattePOS — умная POS-система с интеграцией ведущих платёжных шлюзов и систем учёта.
-              Автоматизируйте бизнес и сосредоточьтесь на росте.
+              LattePOS — умная кассовая программа для автоматизации розницы с интеграцией с товаручетной программой 1С и системами: ЕГАИС, Честный знак, ОФД ФНС, с поддержкой оборудования ведущих производителей.
             </p>
 
             <div className={`flex flex-wrap gap-4 mb-12 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
@@ -75,23 +74,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               </button>
             </div>
 
-            <div className={`flex items-center gap-6 opacity-0 ${heroSection.inView ? "animate-fade-in-up" : ""}`}
-              style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
-              <div className="flex -space-x-2">
-                {[TERRA, TEAL, TERRA_LIGHT, TEAL_LIGHT].map((c, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[10px] font-bold"
-                    style={{ background: c, borderColor: "#0f2420", color: "#0f2420" }}>
-                    {["А", "И", "С", "К"][i]}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="flex items-center gap-1 mb-0.5">
-                  {[...Array(5)].map((_, i) => <Icon key={i} name="Star" size={12} style={{ color: TERRA_LIGHT }} />)}
-                </div>
-                <span className="text-xs" style={{ color: "rgba(232,213,176,0.5)" }}>10 000+ довольных клиентов</span>
-              </div>
-            </div>
+
           </div>
 
           <div className={`relative opacity-0 ${heroSection.inView ? "animate-scale-in" : ""}`}
