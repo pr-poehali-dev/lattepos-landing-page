@@ -120,22 +120,19 @@ export default function LandingSections({ onTrial }: SectionsProps) {
             <h2 className="text-4xl lg:text-5xl font-black mb-4">
               Всё, что нужно<br /><span className="gradient-text">для вашего бизнеса</span>
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(232,213,176,0.5)" }}>
-              Полный набор инструментов для автоматизации продаж и управления бизнесом
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((f, i) => (
               <div key={f.title}
-                className={`gradient-border card-hover p-6 opacity-0 ${featuresSection.inView ? "animate-fade-in-up" : ""}`}
+                className={`gradient-border card-hover p-8 opacity-0 ${featuresSection.inView ? "animate-fade-in-up" : ""}`}
                 style={{ animationDelay: `${i * 0.1}s`, animationFillMode: "forwards" }}>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
                   style={{ background: `${f.color}18`, border: `1px solid ${f.color}30` }}>
-                  <Icon name={f.icon as IconName} size={22} style={{ color: f.color }} />
+                  <Icon name={f.icon as IconName} size={26} style={{ color: f.color }} />
                 </div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: CREAM }}>{f.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(232,213,176,0.5)" }}>{f.desc}</p>
+                <h3 className="text-xl font-bold mb-3" style={{ color: CREAM }}>{f.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(232,213,176,0.55)" }}>{f.desc}</p>
               </div>
             ))}
           </div>
