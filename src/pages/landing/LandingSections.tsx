@@ -234,11 +234,6 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               <div className="absolute inset-0 rounded-2xl blur-xl opacity-20" style={{ background: "linear-gradient(135deg, #4a9990, #c9603a)" }} />
               <div className="relative rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(74,153,144,0.25)" }}>
                 <img src={activeTab === 0 ? SHOP_SCHEME_IMG : NETWORK_IMG} alt="LattePOS" className="w-full h-auto" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,36,32,0.75) 0%, transparent 60%)" }} />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-sm font-semibold mb-1" style={{ color: TEAL_LIGHT }}>50+ интеграций</p>
-                  <p className="text-xs" style={{ color: "rgba(232,213,176,0.5)" }}>Подключайтесь к любым системам учёта и платёжным шлюзам</p>
-                </div>
               </div>
             </div>
           </div>
