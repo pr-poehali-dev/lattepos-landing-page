@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import {
   CREAM, TERRA, TEAL, TERRA_LIGHT, TEAL_LIGHT,
-  DASHBOARD_IMG, NETWORK_IMG, LOGO_IMG,
+  DASHBOARD_IMG, NETWORK_IMG, SHOP_SCHEME_IMG, LOGO_IMG,
   features, integrations, plans, advantages,
   useInView,
 } from "./constants";
@@ -233,7 +233,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               style={{ animationFillMode: "forwards", animationDelay: "0.3s" }}>
               <div className="absolute inset-0 rounded-2xl blur-xl opacity-20" style={{ background: "linear-gradient(135deg, #4a9990, #c9603a)" }} />
               <div className="relative rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(74,153,144,0.25)" }}>
-                <img src={NETWORK_IMG} alt="LattePOS Integrations" className="w-full h-auto" />
+                <img src={activeTab === 0 ? SHOP_SCHEME_IMG : NETWORK_IMG} alt="LattePOS" className="w-full h-auto" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,36,32,0.75) 0%, transparent 60%)" }} />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-sm font-semibold mb-1" style={{ color: TEAL_LIGHT }}>50+ интеграций</p>
