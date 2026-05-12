@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const DASHBOARD_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/files/fa914c70-7f07-444d-990f-d97dc0f968ff.jpg";
 export const NETWORK_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/files/4cc67a46-d331-470c-a1c3-470728560af2.jpg";
+export const RESTAURANT_SCHEME_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/f5be2353-0b1b-46c8-85fd-3030af7f5243.png";
 export const FASTFOOD_SCHEME_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/8c3efe2e-31ce-49f8-9ed9-da95a7fdd36e.png";
 export const SHOP_SCHEME_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/08678b1d-130d-4706-9ad2-919370f0f452.png";
 export const LOGO_IMG = "https://cdn.poehali.dev/projects/bde23adf-c387-489c-b4cf-4fca86eafada/bucket/a4d2dcda-1aa7-4e4d-bc54-31c3b81c1079.png";
