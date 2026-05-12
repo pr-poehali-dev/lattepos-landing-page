@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import {
   CREAM, TERRA, TEAL, TERRA_LIGHT, TEAL_LIGHT,
-  DASHBOARD_IMG, NETWORK_IMG, SHOP_SCHEME_IMG, LOGO_IMG,
+  DASHBOARD_IMG, NETWORK_IMG, SHOP_SCHEME_IMG, FASTFOOD_SCHEME_IMG, LOGO_IMG,
   features, integrations, plans, advantages,
   useInView,
 } from "./constants";
@@ -230,7 +230,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               style={{ animationFillMode: "forwards", animationDelay: "0.3s" }}>
               <div className="absolute inset-0 rounded-2xl blur-xl opacity-20" style={{ background: "linear-gradient(135deg, #4a9990, #c9603a)" }} />
               <div className="relative rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(74,153,144,0.25)" }}>
-                <img src={activeTab === 0 ? SHOP_SCHEME_IMG : NETWORK_IMG} alt="LattePOS" className="w-full h-auto" />
+                <img src={activeTab === 0 ? SHOP_SCHEME_IMG : activeTab === 1 ? FASTFOOD_SCHEME_IMG : NETWORK_IMG} alt="LattePOS" className="w-full h-auto" />
               </div>
             </div>
           </div>
