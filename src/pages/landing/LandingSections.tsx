@@ -174,7 +174,7 @@ export default function LandingSections({ onTrial }: SectionsProps) {
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Сеть магазинов под единым управлением</h3>
                   <p className="text-base leading-relaxed" style={{ color: "rgba(232,213,176,0.55)" }}>
-                    Все кассовые точки подключены к облаку через интернет. LattePOS.Configurator позволяет администрировать всю сеть из одного места, а обмен с 1С происходит каждые 15 минут.
+                    Все кассовые точки подключены к центральному кластеру серверов LattePOS.Cluster, через интернет, LattePOS.Configurator позволяет администрировать всю сеть, а обмен с 1С происходит оперативно.
                   </p>
                   <div className="space-y-3">
                     {[
@@ -182,7 +182,8 @@ export default function LandingSections({ onTrial }: SectionsProps) {
                       "Обмен данными с 1С в формате EnterpriseData",
                       "Поддержка ЕГАИС, Честного знака и ОФД",
                       "Программа лояльности LattePOS.Loyalty для всей сети",
-                      "Кластер серверов LattePOS.Cluster для высокой доступности",
+                      "Кластер серверов LattePOS.Cluster для распределения нагрузки",
+                      "Для единичного магазина вся система может быть развернута на кассовом компьютере",
                     ].map(item => (
                       <div key={item} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(201,96,58,0.18)" }}>
