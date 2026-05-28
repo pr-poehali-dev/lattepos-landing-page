@@ -172,12 +172,18 @@ export default function LandingSections({ onTrial }: SectionsProps) {
 
               {activeTab === 0 && (
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Быстрые продажи</h3>
+                  <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Сеть магазинов под единым управлением</h3>
                   <p className="text-base leading-relaxed" style={{ color: "rgba(232,213,176,0.55)" }}>
-                    Принимайте оплату любым способом: наличными, картой, QR-кодом или через NFC. Встроенный сканер штрихкодов ускоряет обслуживание в 3 раза.
+                    Все кассовые точки подключены к облаку через интернет. LattePOS.Configurator позволяет администрировать всю сеть из одного места, а обмен с 1С происходит каждые 15 минут.
                   </p>
                   <div className="space-y-3">
-                    {["Поддержка 15+ способов оплаты", "Работа офлайн без интернета", "Фискализация ФФД 1.2"].map(item => (
+                    {[
+                      "Централизованное управление через LattePOS.Configurator",
+                      "Обмен данными с 1С в формате EnterpriseData",
+                      "Поддержка ЕГАИС, Честного знака и ОФД",
+                      "Программа лояльности LattePOS.Loyalty для всей сети",
+                      "Кластер серверов LattePOS.Cluster для высокой доступности",
+                    ].map(item => (
                       <div key={item} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(201,96,58,0.18)" }}>
                           <Icon name="Check" size={10} style={{ color: TERRA_LIGHT }} />
@@ -190,12 +196,18 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               )}
               {activeTab === 1 && (
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Умный склад</h3>
+                  <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Сеть точек быстрого питания</h3>
                   <p className="text-base leading-relaxed" style={{ color: "rgba(232,213,176,0.55)" }}>
-                    Синхронизация с 1С, МойСклад и другими системами. Автоматические заказы у поставщиков при достижении минимального остатка.
+                    LattePOS.Fastfood объединяет несколько точек — шавермы, столовые — в единую сеть через интернет. Каждая точка работает автономно и синхронизируется с центральным сервером.
                   </p>
                   <div className="space-y-3">
-                    {["Синхронизация в реальном времени", "Автозаказ у поставщиков", "Серийный учёт и маркировка"].map(item => (
+                    {[
+                      "Единое управление несколькими точками питания",
+                      "Поддержка кухонных принтеров с очередью заказов",
+                      "Интеграция с 1С, ЕГАИС, Честным знаком и ОФД",
+                      "LattePOS.Loyalty — программа лояльности для гостей",
+                      "Масштабирование сети без потери производительности",
+                    ].map(item => (
                       <div key={item} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(74,153,144,0.18)" }}>
                           <Icon name="Check" size={10} style={{ color: TEAL_LIGHT }} />
@@ -208,12 +220,18 @@ export default function LandingSections({ onTrial }: SectionsProps) {
               )}
               {activeTab === 2 && (
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Аналитика и отчёты</h3>
+                  <h3 className="text-2xl font-bold" style={{ color: CREAM }}>Сеть ресторанов с полным контролем</h3>
                   <p className="text-base leading-relaxed" style={{ color: "rgba(232,213,176,0.55)" }}>
-                    Детальные отчёты по продажам, сотрудникам и товарам. Экспорт в Excel и Google Sheets. Дашборд с ключевыми метриками в реальном времени.
+                    LattePOS.Restaurant автоматизирует работу барменов и официантов. Кухонные принтеры разделены по цехам — горячий и холодный, что ускоряет приготовление и исключает ошибки.
                   </p>
                   <div className="space-y-3">
-                    {["30+ видов отчётов", "Прогнозирование спроса AI", "Экспорт в любой формат"].map(item => (
+                    {[
+                      "Отдельные рабочие места для бармена и официанта",
+                      "Кухонные принтеры по цехам с мониторами повара",
+                      "Интеграция с 1С, ЕГАИС, Честным знаком и ОФД",
+                      "Централизованное управление через LattePOS.Configurator",
+                      "Масштабирование на любое количество ресторанов",
+                    ].map(item => (
                       <div key={item} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(201,96,58,0.18)" }}>
                           <Icon name="Check" size={10} style={{ color: TERRA_LIGHT }} />
